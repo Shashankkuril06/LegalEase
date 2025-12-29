@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalEase - Simplify Legal Docs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>LegalEase ⚖️</h1>
+            <p>Upload a legal document (PDF or DOCX) to simplify it.</p>
+        </header>
+
+        <main>
+            <form action="/analyze" method="post" enctype="multipart/form-data" class="upload-form">
+                <input type="file" name="file" accept=".pdf,.docx" required>
+                <button type="submit">Analyze Document</button>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

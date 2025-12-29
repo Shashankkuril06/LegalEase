@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalEase - Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Analysis Result 📝</h1>
+            <a href="/" class="back-link">← Analyze another</a>
+        </header>
+
+        <main class="results">
+            <section class="card">
+                <h2>📄 Extractive Summary</h2>
+                <p>{{ summary }}</p>
+            </section>
+
+            <div class="grid">
+                <section class="card">
+                    <h2>📌 Key Clauses Found</h2>
+                    <ul>
+                        {% for clause in clauses %}
+                        <li class="tag clause">{{ clause }}</li>
+                        {% else %}
+                        <li>No specific clauses detected.</li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
+                <section class="card">
+                    <h2>🔑 Important Legal Terms</h2>
+                    <div class="tags">
+                        {% for keyword in keywords %}
+                        <span class="tag keyword">{{ keyword }}</span>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>🏷️ Named Entities</h2>
+                    {% for label, items in entities.items() %}
+                    {% if items %}
+                    <div class="entity-group">
+                        <h3>{{ label }}</h3>
+                        <div class="tags">
+                            {% for item in items %}
+                            <span class="tag entity">{{ item }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
