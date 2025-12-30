@@ -65,7 +65,4 @@ LegalEase/
     ├── clause_detector.py # Regex Clause Logic
     ├── analysis.py        # TF-IDF & Summarization
     └── ner.py             # Entity Extraction
-```
 
----
-*Disclaimer: LegalEase is for educational purposes and does not provide professional legal advice. Always consult a qualified attorney.*
